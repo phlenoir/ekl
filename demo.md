@@ -9,12 +9,12 @@ Se connecter à Kibana depuis son navigateur : ```localhost:5601``` Identifiant 
 
 * Depuis l'écran d'accueil cliquez sur le bouton Add Data et de là allez sur l'onglet Upload file
 * Choisir un fichier de log à importer, il ne doit pas dépasser 100Mo
-* Pour éviter les messages d'erreur on retire les lignes d'en-tête
+* Pour éviter les messages d'erreur on retire les lignes d'en-tête avec ```sed -i '/^#/ d' *.log```
 * Kibana analyse le fichier et propose de lui appliquer la structure qui lui semble la plus appropriée
 * On modifie cette proposition pour lui appliquer notre template:
 
 ```
-%{TIMESTAMP_ISO8601:log_timestamp} %{IPORHOST:site} %{WORD:method} %{URIPATH:uristem} %{NOTSPACE:uriquery} %{NUMBER:port} %{NOTSPACE:username} %{IPORHOST:clienthost} %{NOTSPACE:useragent} %{NOTSPACE:referer} %{NUMBER:status} %{NUMBER:substatus} %{NUMBER:win32status} %{NUMBER:time_taken}
+%{TIMESTAMP_ISO8601:timestamp} %{IPORHOST:site} %{WORD:method} %{URIPATH:uristem} %{NOTSPACE:uriquery} %{NUMBER:port} %{NOTSPACE:username} %{IPORHOST:clienthost} %{NOTSPACE:useragent} %{NOTSPACE:referer} %{NUMBER:status} %{NUMBER:substatus} %{NUMBER:win32status} %{NUMBER:time_taken}
 ```
 
 ## Visualiser les log avec un dashboard
