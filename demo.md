@@ -15,6 +15,8 @@ Se connecter à Kibana depuis son navigateur : ```localhost:5601``` Identifiant 
 
 ```
 %{TIMESTAMP_ISO8601:timestamp} %{IPORHOST:site} %{WORD:method} %{URIPATH:uristem} %{NOTSPACE:uriquery} %{NUMBER:port} %{NOTSPACE:username} %{IPORHOST:clienthost} %{NOTSPACE:useragent} %{NOTSPACE:referer} %{NUMBER:status} %{NUMBER:substatus} %{NUMBER:win32status} %{NUMBER:time_taken}
+
+%{TIMESTAMP_ISO8601:timestamp} %{IPORHOST:site} %{WORD:method} %{URIPATH:uristem} %{NOTSPACE:uriquery} %{NUMBER:port} %{NOTSPACE:username} %{IPORHOST:clienthost} %{NOTSPACE:protocol} %{NOTSPACE:useragent} %{NOTSPACE:referer} %{NUMBER:status} %{NUMBER:substatus} %{NUMBER:win32status} %{NUMBER:time_taken}
 ```
 
 ## Visualiser les log avec un dashboard
